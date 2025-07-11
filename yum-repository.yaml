@@ -1,0 +1,18 @@
+---
+  - name: Configure yum Repository
+    hosts: rh9
+    tasks:
+      - name: Base OS Configure Yum Repo
+        ansible.builtin.yum_repository:
+          name: Base-os
+          description: "RH9-BASE-OS"
+          baseurl: file:///media/rh9dvd/BaseOS
+          enabled: true
+          gpgcheck: false
+      - name: Base OS Configure Yum Repo
+        ansible.builtin.yum_repository:
+          name: App-Stream
+          description: "RH9-AppStream"
+          baseurl: file:///media/rh9dvd/AppStream
+          enabled: true
+          gpgcheck: false
