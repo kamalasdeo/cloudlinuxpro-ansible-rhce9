@@ -1,0 +1,24 @@
+---
+  - name: My first play
+    hosts: rh9
+    tasks:
+    - name: First task - Create a directory
+      ansible.builtin.file:
+          path: /home/atos/my-data_01
+          state: directory
+    - name: Second Tasks - Create a file
+      ansible.builtin.file:
+          path: /home/atos/my-data_01/test.txt
+          state: touch
+
+    - name: Third tasks - add aline
+      ansible.builtin.lineinfile:
+          line: "Hi"
+          path: /home/atos/my-data_01/test.txt
+  - name: My second play
+    hosts: rh9
+    tasks:
+    - name: First task - Create a directory
+      ansible.builtin.file:
+          path: /home/atos/my-data_02
+          state: directory
